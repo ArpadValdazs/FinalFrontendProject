@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatComponent } from './chat/chat.component';
-import { MessageBoxComponent } from './chat/message-box/message-box.component';
-import { TextBoxComponent } from './chat/text-box/text-box.component';
-
+import { SettingsComponent } from './chat/settings/settings.component';
+import {ChatboxModule} from './chat/chatbox/chatbox.module';
 
 
 @NgModule({
-  declarations: [ChatComponent, MessageBoxComponent, TextBoxComponent],
+  declarations: [ChatComponent, SettingsComponent],
   exports: [
-    MessageBoxComponent,
     ChatComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ChatboxModule
   ]
 })
 export class ChatModule { }

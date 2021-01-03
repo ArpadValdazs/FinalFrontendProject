@@ -4,6 +4,6 @@ export interface MessageInterface {
     image: string;
     date: string;
     text: string;
-    map(param: (item) => { date: any; image: any; text: any; username: any }): MessageInterface[];
+    map(param: (item) => {date: any; image: any; text: any; username: any}): MessageInterface[];
   };
 }
