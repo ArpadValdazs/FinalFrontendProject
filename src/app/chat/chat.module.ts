@@ -8,6 +8,10 @@ import { TextBoxComponent } from './chat/text-box/text-box.component';
 
 @NgModule({
   declarations: [ChatComponent, MessageBoxComponent, TextBoxComponent],
+  exports: [
+    MessageBoxComponent,
+    ChatComponent
+  ],
   imports: [
     CommonModule
   ]

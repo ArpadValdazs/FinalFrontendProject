@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MessageBoxService} from '../../message-box.service';
+import {MessageInterface} from '../../../../interfaces/message.interface';
 
 @Component({
   selector: 'app-message-box',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-box.component.css']
 })
 export class MessageBoxComponent implements OnInit {
+  post: MessageInterface[];
 
-  constructor() { }
-
+  constructor(private messageBoxService: MessageBoxService) {}
+  showPosts(): void{
+    this.messageBoxService.getPost()
+      .subscribe((data: MessageInterface) => {
+        console.log(data);
+      });
+  }
   ngOnInit(): void {
+    this.showPosts();
   }
 
 }

@@ -7,9 +7,12 @@ import { BinComponent } from './shop/bin/bin.component';
 
 
 @NgModule({
-  declarations: [ShopComponent, ItemComponent, BinComponent],
-  imports: [
-    CommonModule
-  ]
+    declarations: [ShopComponent, ItemComponent, BinComponent],
+    exports: [
+        ShopComponent
+    ],
+    imports: [
+        CommonModule
+    ]
 })
 export class ShopModule { }
