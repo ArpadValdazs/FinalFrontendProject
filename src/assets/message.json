@@ -1,6 +1,16 @@
 {
-  "username": "chrundell",
-  "image": "image.jpg",
-  "text": "Imma best!",
-  "date": "02.01.2020"
+  "messages": [
+    {
+      "username": "chrundell",
+      "image": "image.jpg",
+      "text": "Imma best!",
+      "date": "02.01.2020"
+    },
+    {
+      "username": "Idgiguojgirlik",
+      "image": "image2.jpg",
+      "text": "Amuce cajlelik!",
+      "date": "05.01.2020"
+    }
+  ]
 }

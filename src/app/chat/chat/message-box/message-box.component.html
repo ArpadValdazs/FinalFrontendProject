@@ -1,8 +1,10 @@
-<div class="message">
-  <img alt="avatar" [src] = "message.image">
-  <p class="nickname">{{message.username}}</p>
-  <p class="date">{{message.date}}</p>
-  <p class="text">{{message.text}}</p>
+<div class="message" *ngFor="let item of post">
+    <img alt="avatar" [src] = "item.image">
+    <p class="nickname">{{item.username}}</p>
+    <p class="date">{{item.date}}</p>
+    <p class="text">{{item.text}}</p>
+
+
   <div class="button">
     <button value="Edit">Изменить</button>
     <button value="Delete">Удалить</button>

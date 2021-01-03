@@ -9,12 +9,20 @@ import {MessageInterface} from '../../../../interfaces/message.interface';
 })
 export class MessageBoxComponent implements OnInit {
   post: MessageInterface[];
-
   constructor(private messageBoxService: MessageBoxService) {}
   showPosts(): void{
     this.messageBoxService.getPost()
       .subscribe((data: MessageInterface) => {
-        console.log(data);
+        const{messages} = data;
+        console.log(messages);
+        this.post = messages.map((item) => {
+           return {
+             username: item.username,
+             image: item.image,
+             date: item.date,
+             text: item.text,
+           };
+        });
       });
   }
   ngOnInit(): void {
