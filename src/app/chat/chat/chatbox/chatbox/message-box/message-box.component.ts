@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MessageBoxService} from '../../message-box.service';
-import {MessageInterface} from '../../../../interfaces/message.interface';
+import {MessageBoxService} from '../../../message-box.service';
+import {MessageInterface} from '../../../../../interfaces/message.interface';
 
 @Component({
   selector: 'app-message-box',
