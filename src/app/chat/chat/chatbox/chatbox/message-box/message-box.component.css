@@ -21,3 +21,25 @@
   width: 50px;
   border-radius: 25px;
 }
+.button1 {
+  background-color: peachpuff;
+  border: 1px solid darksalmon;
+  text-transform: uppercase;
+  padding: 3px;
+  transition: 70ms ease-in-out;
+}
+.button1:hover{
+  background-color: darksalmon;
+  transition: 70ms ease-in-out;
+}
+.button2 {
+  background-color: lightpink;
+  border: 1px solid red;
+  text-transform: uppercase;
+  padding: 3px;
+  transition: 70ms ease-in-out;
+}
+.button2:hover{
+  background-color: red;
+  transition: 70ms ease-in-out;
+}

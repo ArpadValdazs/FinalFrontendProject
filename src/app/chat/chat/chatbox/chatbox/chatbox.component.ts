@@ -19,7 +19,6 @@ export class ChatboxComponent implements OnInit {
   addChatNumber(newMessage): void {
     this.messageToServer.push(this.chatNum);
     this.messageToServer.push(newMessage);
-    console.log(this.messageToServer);
   }
 
   ngOnInit(): void {

@@ -25,6 +25,10 @@ export class MessageBoxComponent implements OnInit {
         });
       });
   }
+  deleteMessage(){
+
+  }
+
   ngOnInit(): void {
     this.showPosts();
   }
