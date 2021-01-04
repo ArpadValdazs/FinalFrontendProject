@@ -1,4 +1,4 @@
-<div class="message" *ngFor="let item of post">
+<div class="message" *ngFor="let item of post" [id] = "item.id">
     <img alt="avatar" [src] = "item.image" class="userpic">
     <p class="nickname">{{item.username}}</p>
     <p class="date">{{item.date}}</p>
@@ -7,6 +7,6 @@
 
   <div class="buttons">
     <button value="Edit" class = "button1">Изменить</button>
-    <button value="Delete" class = "button2">Удалить</button>
+    <button value="Delete" class = "button2" (click)="deleteMessage()">Удалить</button>
   </div>
 </div>

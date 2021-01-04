@@ -17,6 +17,7 @@ export class MessageBoxComponent implements OnInit {
         console.log(messages);
         this.post = messages.map((item) => {
            return {
+             id: item.id,
              username: item.username,
              image: item.image,
              date: item.date,
@@ -25,8 +26,8 @@ export class MessageBoxComponent implements OnInit {
         });
       });
   }
-  deleteMessage(){
-
+  deleteMessage(): void {
+    console.log('2');
   }
 
   ngOnInit(): void {
