@@ -7,6 +7,7 @@ import {ChatModule} from './chat/chat.module';
 import {ShopModule} from './shop/shop.module';
 import {HttpClientModule} from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent

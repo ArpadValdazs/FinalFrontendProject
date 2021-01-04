@@ -2,13 +2,13 @@
   "messages": [
     {
       "username": "chrundell",
-      "image": "image.jpg",
+      "image": "assets/pictures/image1.jpg",
       "text": "Imma best!",
       "date": "02.01.2020"
     },
     {
       "username": "Idgiguojgirlik",
-      "image": "image2.jpg",
+      "image": "assets/pictures/image2.png",
       "text": "Amuce cajlelik!",
       "date": "05.01.2020"
     }

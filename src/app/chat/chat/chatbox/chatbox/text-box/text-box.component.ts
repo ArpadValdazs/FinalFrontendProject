@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {Component, OnInit, Output} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-text-box',
@@ -7,12 +8,10 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./text-box.component.css']
 })
 export class TextBoxComponent implements OnInit {
-  sendMessage = '';
-  sendText = new FormGroup({
-    input: new FormControl('')
-  });
-  onSubmit(): void {
-    this.sendMessage = this.sendText.value;
+  @Output() sendMessage = new EventEmitter<string>();
+  sendText = new FormControl('');
+  onSubmit(value: string): void {
+    this.sendMessage.emit(value);
   }
   constructor() { }
 

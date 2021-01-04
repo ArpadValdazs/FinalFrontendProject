@@ -1,8 +1,6 @@
-<form [formGroup] = "sendText" (ngSubmit)="onSubmit()">
 <label>Input your message<br/>
-<textarea placeholder="Input your message" formControlName="input">
+<textarea placeholder="Input your message" #sendText>
 
 </textarea><br/>
-  <input type="submit" value="Send">
+  <input type="button" value="Send" (click)="onSubmit(sendText.value)">
 </label>
-</form>
