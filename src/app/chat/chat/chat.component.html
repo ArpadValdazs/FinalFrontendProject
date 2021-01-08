@@ -1,2 +1,15 @@
-<app-chatbox></app-chatbox>
+<div *ngFor="let roomItem of rooms" [id]="roomItem.id">
+  <a routerLink="/chat1">
+    <img src="favicon.ico" alt="roomName">
+    <p>{{roomItem.name}}</p>
+    <p>{{roomItem.lastMessage}}</p>
+  </a>
+</div>
+
+<!--
+<app-chatbox
+  *ngFor="let roomItems of rooms">
+</app-chatbox>
 <app-settings></app-settings>
+-->
+

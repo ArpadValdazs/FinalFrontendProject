@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ChatComponent } from './chat/chat.component';
 import {ChatboxModule} from './chat/chatbox/chatbox.module';
 import {SettingsComponent} from './chat/settings/settings.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {SettingsComponent} from './chat/settings/settings.component';
   ],
   imports: [
     CommonModule,
-    ChatboxModule
+    ChatboxModule,
+    RouterModule
   ]
 })
 export class ChatModule { }
