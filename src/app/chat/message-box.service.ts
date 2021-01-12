@@ -12,19 +12,19 @@ export class MessageBoxService {
   constructor(private http: HttpClient) { }
   dbUrl = 'assets/message.json';
   getPost(): Observable<object>{
-    return this.http.get<MessageInterface>(this.dbUrl)
+    return this.http.get<object>(this.dbUrl)
       .pipe(
         retry(3)
       );
-  }    /*
-
-  deletePost(post: string): Observable<{}>{
-    const url = `${this.dbUrl}/${messages.id}`;
-    return this.http.delete<{}>(url)
+  }
+  deletePost(id: string): Observable<{}>{
+    console.log(id, 'service');
+    const url = this.dbUrl;
+    return this.http.delete<{}>(`${url}/${id}`)
       .pipe(
         catchError(this.handleError)
       );
-  }*/
+  }*
 
   handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {

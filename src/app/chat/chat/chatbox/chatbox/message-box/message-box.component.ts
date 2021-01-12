@@ -8,28 +8,21 @@ import {MessageInterface} from '../../../../../../interfaces/message.interface';
   styleUrls: ['./message-box.component.css']
 })
 export class MessageBoxComponent implements OnInit {
-  post: MessageInterface[];
+  post: MessageInterface[] = [];
   constructor(private messageBoxService: MessageBoxService) {}
   showPosts(): void{
     this.messageBoxService.getPost()
-      .subscribe((data: MessageInterface) => {
-        const{messages} = data;
-        console.log(messages);
-        this.post = messages.map((item) => {
-           return {
-             id: item.id,
-             username: item.username,
-             image: item.image,
-             date: item.date,
-             text: item.text,
-           };
-        });
+      .subscribe((data: { messages: MessageInterface[] }) => {
+        this.post = data.messages;
       });
   }
-  deleteMessage(): void {/*
-    this.messageBoxService.deletePost(messages.id);*/
+  deleteMessage(id: string): void {
+    console.log(id, 'component');
+    this.messageBoxService.deletePost(id).subscribe();
   }
-
+  printPost(){
+    console.log(this.post);
+  }
   ngOnInit(): void {
     this.showPosts();
   }
