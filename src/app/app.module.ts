@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import {ChatModule} from './chat/chat.module';
 import {ShopModule} from './shop/shop.module';
 import {HttpClientModule} from '@angular/common/http';
-
+import { AuthComponent } from './auth/auth.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
     ChatModule,
     ShopModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

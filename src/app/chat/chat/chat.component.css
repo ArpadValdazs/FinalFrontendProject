@@ -1,0 +1,24 @@
+.chatRooms {
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
+.chatLink {
+  display: block;
+  background-color: azure;
+  text-decoration: none;
+  color: black;
+  transition: 0.1s ease-in-out;
+}
+.roomBox {
+  align-self: stretch;
+  border: 1px solid black;
+  padding: 5px;
+}
+.chatLink:hover {
+  background-color: palegreen;
+  transition: 0.1s ease-in-out;
+}

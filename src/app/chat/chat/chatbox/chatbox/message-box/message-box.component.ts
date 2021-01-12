@@ -26,8 +26,8 @@ export class MessageBoxComponent implements OnInit {
         });
       });
   }
-  deleteMessage(): void {
-    console.log('2');
+  deleteMessage(): void {/*
+    this.messageBoxService.deletePost(messages.id);*/
   }
 
   ngOnInit(): void {

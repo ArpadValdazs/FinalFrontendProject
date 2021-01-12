@@ -4,7 +4,8 @@ import {MessageBoxComponent} from './chat/chat/chatbox/chatbox/message-box/messa
 
 /*Сюда роуты будем получать тоже с сервера*/
 const routes: Routes = [
-  {path: 'chat1', component: MessageBoxComponent}
+  {path: 'chat1', component: MessageBoxComponent},
+  {path: 'chat2', component: MessageBoxComponent}
 ];
 
 @NgModule({

@@ -10,20 +10,21 @@ import {MessageInterface} from '../../interfaces/message.interface';
 export class MessageBoxService {
 
   constructor(private http: HttpClient) { }
-  deleteUrl = 'zaglushka.php';
+  dbUrl = 'assets/message.json';
   getPost(): Observable<object>{
-    return this.http.get<MessageInterface>('assets/message.json')
+    return this.http.get<MessageInterface>(this.dbUrl)
       .pipe(
         retry(3)
       );
-  }
-  deletePost(post: string): Observable<any>{
+  }    /*
 
-    return this.http.delete(this.deleteUrl)
+  deletePost(post: string): Observable<{}>{
+    const url = `${this.dbUrl}/${messages.id}`;
+    return this.http.delete<{}>(url)
       .pipe(
         catchError(this.handleError)
       );
-  }
+  }*/
 
   handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
