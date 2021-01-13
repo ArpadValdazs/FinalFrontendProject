@@ -20,7 +20,7 @@ export class MessageBoxComponent implements OnInit {
     console.log(id, 'component');
     this.messageBoxService.deletePost(id).subscribe();
   }
-  printPost(){
+  printPost(): void{
     console.log(this.post);
   }
   ngOnInit(): void {

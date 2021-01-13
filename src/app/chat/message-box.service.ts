@@ -24,7 +24,7 @@ export class MessageBoxService {
       .pipe(
         catchError(this.handleError)
       );
-  }*
+  }
 
   handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {

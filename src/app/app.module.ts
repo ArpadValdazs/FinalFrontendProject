@@ -8,11 +8,13 @@ import {ShopModule} from './shop/shop.module';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
