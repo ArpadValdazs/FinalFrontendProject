@@ -1,0 +1,22 @@
+{
+  "chatRooms": [
+    {
+      "id": 3,
+      "name": "chat1",
+      "image": "image1.jpg",
+      "lastMessage": "lastmessage1"
+    },
+    {
+      "id": 2,
+      "name": "chat2",
+      "image": "image2.jpg",
+      "lastMessage": "lastmessage2"
+    },
+    {
+      "id": 1,
+      "name": "chat3",
+      "image": "image3.jpg",
+      "lastMessage": "lastmessage3"
+    }
+  ]
+}

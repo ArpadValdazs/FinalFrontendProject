@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ChatRoomService} from './chat-room.service';
+import {ChatRoomsInterface} from '../../../interfaces/chatRooms.interface';
 
 @Component({
   selector: 'app-chat',
@@ -6,13 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  chatRooms: ChatRoomsInterface[] = [];
+  constructor(private chatRoomsService: ChatRoomService) { }
+  getPosts(): void{
+    this.chatRoomsService.getChatRooms()
+      .subscribe((data: {chatRooms: ChatRoomsInterface[]}) => {
+        this.chatRooms = data.chatRooms;
+        console.log(this.chatRooms);
+        }
+      );
+  }
+  sortedRooms(sorted: object): object {
+    console.log(sorted);
+    console.log(this.chatRooms);
+    return this.chatRooms = sorted;
+  }
 
-  constructor() { }
-  rooms = [
-    {id: '1', name: 'chat1', image: 'image1.jpg', lastMessage: 'lastMessage'},
-    {id: '2', name: 'chat2', image: 'image2.jpg', lastMessage: 'lastMessage2'},
-    {id: '3', name: 'chat3', image: 'image2.jpg', lastMessage: 'lastMessage3'}
-  ];
   ngOnInit(): void {
+
+    this.getPosts();
   }
 }

@@ -9,14 +9,14 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   @Output() SignupAction = new EventEmitter<string>();
-  regForm = new FormGroup({
+  signupForm = new FormGroup({
     login: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
     });
   constructor() { }
   onSubmitSignup(): void{
-    console.warn(this.regForm.value);
+    console.warn(this.signupForm.value);
   }
 
   ngOnInit(): void {

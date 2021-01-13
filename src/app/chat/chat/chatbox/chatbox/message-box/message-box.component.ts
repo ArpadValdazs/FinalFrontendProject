@@ -16,7 +16,7 @@ export class MessageBoxComponent implements OnInit {
         this.post = data.messages;
       });
   }
-  deleteMessage(id: string): void {
+  deleteMessage(id: number): void {
     console.log(id, 'component');
     this.messageBoxService.deletePost(id).subscribe();
   }

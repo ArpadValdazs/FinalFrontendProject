@@ -17,7 +17,7 @@ export class MessageBoxService {
         retry(3)
       );
   }
-  deletePost(id: string): Observable<{}>{
+  deletePost(id: number): Observable<{}>{
     console.log(id, 'service');
     const url = this.dbUrl;
     return this.http.delete<{}>(`${url}/${id}`)
