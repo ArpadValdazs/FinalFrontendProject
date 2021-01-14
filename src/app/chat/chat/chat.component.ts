@@ -21,6 +21,7 @@ export class ChatComponent implements OnInit {
   sortedRooms(sorted: object): object {
     console.log(sorted);
     console.log(this.chatRooms);
+    // @ts-ignore
     return this.chatRooms = sorted;
   }
 

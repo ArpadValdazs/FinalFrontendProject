@@ -1,6 +1,7 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {EventEmitter} from '@angular/core';
+import {AuthService} from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -13,9 +14,12 @@ export class AuthComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl('')
   });
-  constructor() { }
+
+  constructor(private authService: AuthService) { }
+  sendAction(): void{
+    this.authService.sendAuth(this.authForm.value).subscribe();
+  }
   onSubmitAuth(): void{
-    console.warn(this.authForm.value);
   }
 
   ngOnInit(): void {

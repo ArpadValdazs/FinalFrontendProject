@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="authForm" (ngSubmit)="onSubmitAuth()">
+  <form [formGroup]="authForm" (ngSubmit)="sendAction()">
     <label>
       <input type="email" placeholder="Введите Email" formControlName="email">
     </label>
