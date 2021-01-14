@@ -1,6 +1,56 @@
 * {
   padding-bottom: 5px;
 }
+.settingsBlock {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.messageSettings{
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+}
 .quitButton {
   background-color: darksalmon;
+  transition: .1s ease-in-out;
+  border: 0;
+  text-transform: uppercase;
+}
+.sortButton {
+  display: block;
+  background-color: palegreen;
+  transition: .1s ease-in-out;
+  border: 0;
+  text-transform: uppercase;
+}
+label {
+  margin: 0;
+  padding: 0;
+}
+.inputNumber{
+  /*
+    margin: 0;*/
+    padding: 12px 0 12px 5px;
+    border: 1px solid black;
+    font-size: 20px;
+    width: 260px;
+}
+.sortButton:hover{
+  background-color: yellow;
+  transition: .1s ease-in-out;
+}
+.quitButton:hover{
+  background-color: indianred;
+  transition: .1s ease-in-out;
+}
+
+@media all and (max-width: 600px){
+  .settingsBlock .messageSettings{
+    display: flex;
+    flex-direction: column;
+  }
+  .inputNumber {
+    align-self: center;
+  }
 }

@@ -17,7 +17,7 @@ export class AuthService {
         Authorization: 'my-auth-token'
       })
     };
-    const Url = 'assets';
+    const Url = 'http://finalserverproject/src/Controller/authController.php';
     return this.http.post(Url, submit, httpOptions)
       .pipe(
         retry(3)

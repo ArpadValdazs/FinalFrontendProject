@@ -1,5 +1,7 @@
 <div class="chatRooms">
-  <app-settings [rooms] = chatRooms (sortAction)="sortedRooms($event)"></app-settings>
+  <div class="settingsBox">
+    <app-settings [rooms] = chatRooms (sortAction)="sortedRooms($event)"></app-settings>
+  </div>
   <div *ngFor="let roomItem of chatRooms" [id]="roomItem.id" class="roomBox">
     <a [routerLink]="roomItem.name" class="chatLink">
       <img src="favicon.ico" alt="roomName">

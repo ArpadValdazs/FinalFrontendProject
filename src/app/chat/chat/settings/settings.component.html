@@ -1,8 +1,10 @@
-<div>
-  <label>
-    <input type="text" placeholder="Введите номер беседы">
-  </label>
-  <input type="button" value="Выйти" class="quitButton">
-  <button (click)="sortByName()">Сортировать по последним сообщениям</button>
-  <button>Сортировать по названию беседы А-Я</button>
+<div class = "settingsBlock">
+  <div class="messageSettings">
+    <label>
+      <input type="text" placeholder="Введите номер беседы" class="inputNumber">
+    </label>
+    <button (click)="sortByName()" class="sortButton">Sort by name</button>
+    <button class="sortButton">Sort by date</button>
+  </div>
+  <input type="button" value="Exit" class="quitButton">
 </div>
