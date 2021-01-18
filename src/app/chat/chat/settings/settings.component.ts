@@ -9,20 +9,38 @@ import {ChatComponent} from '../chat.component';
 export class SettingsComponent implements OnInit {
   @Input() rooms: object;
   @Output() sortAction = new EventEmitter<object>();
+  clickMarker = '0';
+  cycleRooms = 'unclicked';
   constructor() { }
   sortByName(): any{
-    // @ts-ignore
-    for (let i = 0; i < this.rooms.length; i++){
+    // const onClicked = ['unclicked', 'clicked'];
+    if (this.cycleRooms === 'unclicked'){
       // @ts-ignore
-      for (let j = 0; j < this.rooms.length - 1; j++) {
-        const position = this.rooms[j];
-        if (this.rooms[i].id < this.rooms[j].id){
-          this.rooms[j] = this.rooms[i];
-          this.rooms[i] = position;
+      for (let i = 0; i < this.rooms.length; i++){
+        // @ts-ignore
+        for (let j = 0; j < this.rooms.length - 1; j++) {
+          const position = this.rooms[j];
+          if (this.rooms[i].id < this.rooms[j].id){
+            this.rooms[j] = this.rooms[i];
+            this.rooms[i] = position;
+          }
         }
       }
+      this.cycleRooms = 'clicked';
+    } else {
+      // @ts-ignore
+      for (let i = 0; i < this.rooms.length; i++){
+        // @ts-ignore
+        for (let j = 0; j < this.rooms.length - 1; j++) {
+          const position = this.rooms[j];
+          if (this.rooms[i].id > this.rooms[j].id){
+            this.rooms[j] = this.rooms[i];
+            this.rooms[i] = position;
+          }
+        }
+      }
+      this.cycleRooms = 'unclicked';
     }
-    console.log(this.rooms);
     this.sortAction.emit(this.rooms);
   }
   ngOnInit(): void {

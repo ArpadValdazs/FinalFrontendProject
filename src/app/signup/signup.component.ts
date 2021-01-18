@@ -1,6 +1,7 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {EventEmitter} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {SignupService} from './signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,9 +15,10 @@ export class SignupComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
     });
-  constructor() { }
+  constructor(private signupService: SignupService) { }
   onSubmitSignup(): void{
-    console.warn(this.signupForm.value);
+    this.signupService.signupAction(this.signupForm.value).subscribe();
+    console.warn();
   }
 
   ngOnInit(): void {

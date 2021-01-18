@@ -1,14 +1,25 @@
-<div class="message" *ngFor="let item of post" [id] = "item.id">
+<div id = "messageBox">
+  <div class="message" *ngFor="let item of post" [id] = "item.id">
     <img alt="avatar" [src] = "item.image" class="userpic">
     <p class="nickname">{{item.username}}</p>
     <p class="date">{{item.date}}</p>
-    <p class="text">{{item.text}}</p>
+    <div *ngIf="edit; else elseBlock">
+      <label>
+        <input type="text" value="{{item.text}}">
+      </label>
+      <button (click)="sendEditedMessage()"></button>
+    </div>
+    <ng-template #elseBlock>
+      <p class="text">{{item.text}}</p>
+    </ng-template>
 
 
-  <div class="buttons">
-    <button value="Edit" class = "button1">Изменить</button>
-    <button value="Delete" class = "button2" (click)="deleteMessage(item.id)">Удалить</button>
+
+
+    <div class="buttons">
+      <button value="Edit" class = "button1" (click)="editMessage(item.id)">Изменить</button>
+      <button value="Delete" class = "button2" (click)="deleteMessage(item.id)">Удалить</button>
+    </div>
   </div>
 </div>
 
-<button (click)="printPost()">Kzkzkz</button>

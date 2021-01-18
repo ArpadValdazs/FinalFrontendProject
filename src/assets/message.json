@@ -1,7 +1,7 @@
 {
   "messages": [
     {
-      "id" : 1,
+      "id" : 5,
       "username": "chrundell",
       "image": "assets/pictures/image1.jpg",
       "text": "Imma best!",
@@ -29,7 +29,7 @@
       "date": "08.01.2020"
     },
     {
-      "id" : 5,
+      "id" : 1,
       "username": "Idgiguojgirlik",
       "image": "assets/pictures/image2.png",
       "text": "Amuce cajlelik!",

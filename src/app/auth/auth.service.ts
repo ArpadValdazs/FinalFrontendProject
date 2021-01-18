@@ -9,7 +9,6 @@ import {retry} from 'rxjs/operators';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-
   sendAuth(submit: object): Observable<{}>{
     const httpOptions = {
       headers: new HttpHeaders({
