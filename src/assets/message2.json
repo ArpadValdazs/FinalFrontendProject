@@ -1,0 +1,18 @@
+{
+  "messages": [
+    {
+      "id" : 6,
+      "username": "chrundell",
+      "image": "assets/pictures/image1.jpg",
+      "text": "AAAAAAAAAAAAAAAAAAAAa",
+      "date": "02.01.2020"
+    },
+    {
+      "id" : 7,
+      "username": "Idgiguojgirlik",
+      "image": "assets/pictures/image2.png",
+      "text": "zuzuzu",
+      "date": "06.01.2020"
+    }
+  ]
+}

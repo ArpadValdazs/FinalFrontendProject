@@ -7,6 +7,7 @@ import {retry} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+  isLoggedIn = false;
 
   constructor(private http: HttpClient) { }
   sendAuth(submit: object): Observable<{}>{

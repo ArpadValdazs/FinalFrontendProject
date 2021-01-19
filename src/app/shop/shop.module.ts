@@ -4,8 +4,6 @@ import { ShopComponent } from './shop/shop.component';
 import { ItemComponent } from './shop/item/item.component';
 import { BinComponent } from './shop/bin/bin.component';
 
-
-
 @NgModule({
     declarations: [ShopComponent, ItemComponent, BinComponent],
     exports: [

@@ -4,17 +4,20 @@ import { ChatComponent } from './chat/chat.component';
 import {ChatboxModule} from './chat/chatbox/chatbox.module';
 import {SettingsComponent} from './chat/settings/settings.component';
 import {RouterModule} from '@angular/router';
+import {ChatRoutingModule} from './chat-routing.module';
 
 
 @NgModule({
-  declarations: [ChatComponent, SettingsComponent],
+  declarations: [SettingsComponent],
   exports: [
-    ChatComponent
+    SettingsComponent
   ],
   imports: [
     CommonModule,
-    ChatboxModule,
-    RouterModule
-  ]
+    // ChatboxModule,
+    RouterModule,
+    ChatRoutingModule
+  ],
+  bootstrap: [SettingsComponent]
 })
 export class ChatModule { }
