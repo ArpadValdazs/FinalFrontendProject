@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ChatRoomService} from '../../chat-room.service';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatboxComponent implements OnInit {
 
-  constructor() { }
+  constructor(private chatRoomsService: ChatRoomService) { }
   chatNum = 1;
   messageToServer = [];
   /*
@@ -16,6 +17,12 @@ export class ChatboxComponent implements OnInit {
     return chatNumber;
   }
   */
+  goToRoom(id: number): void{
+    // Этот метод работает с целью вывода message-box-component
+    // Здесь надо написать алгоритм присваивания ID, чтобы затем он по нему был запрос
+    this.chatRoomsService.chatRoomsRequest(id)
+      .subscribe();
+  }
   addChatNumber(newMessage): void {
     this.messageToServer.push(this.chatNum);
     this.messageToServer.push(newMessage);

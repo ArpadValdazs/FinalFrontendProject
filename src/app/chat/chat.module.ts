@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChatComponent } from './chat/chat.component';
-import {ChatboxModule} from './chat/chatbox/chatbox.module';
 import {SettingsComponent} from './chat/settings/settings.component';
 import {RouterModule} from '@angular/router';
 import {ChatRoutingModule} from './chat-routing.module';
+import {ChatComponent} from './chat/chat.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [SettingsComponent],
+  declarations: [SettingsComponent, ChatComponent],
   exports: [
-    SettingsComponent
+    ChatComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
-    // ChatboxModule,
     RouterModule,
-    ChatRoutingModule
+    ChatRoutingModule,
+    ReactiveFormsModule
   ],
-  bootstrap: [SettingsComponent]
+  bootstrap: [SettingsComponent, ChatComponent]
 })
 export class ChatModule { }

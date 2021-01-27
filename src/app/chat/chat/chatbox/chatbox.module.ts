@@ -5,21 +5,22 @@ import {TextBoxComponent} from './chatbox/text-box/text-box.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {routingComponents} from '../../../app-routing.module';
 import {MessageBoxComponent} from './chatbox/message-box/message-box.component';
-import {ChatModule} from '../../chat.module';
 import {RouterModule} from '@angular/router';
+import {ChatboxRoutingModule} from './chatbox-routing.module';
 
 @NgModule({
-  declarations: [ChatboxComponent, TextBoxComponent, MessageBoxComponent, routingComponents],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ChatModule,
-    RouterModule,
-  ],
+  declarations: [ChatboxComponent, TextBoxComponent, MessageBoxComponent],
   exports: [
     MessageBoxComponent,
     TextBoxComponent,
     ChatboxComponent,
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    ChatboxRoutingModule
   ]
+
 })
 export class ChatboxModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {MessageBoxService} from '../../../../message-box.service';
 import {MessageInterface} from '../../../../../../interfaces/message.interface';
 
@@ -8,6 +8,7 @@ import {MessageInterface} from '../../../../../../interfaces/message.interface';
   styleUrls: ['./message-box.component.css']
 })
 export class MessageBoxComponent implements OnInit {
+  @Output()
   post: MessageInterface[] = [];
   sss: string;
   edit = false;
@@ -33,13 +34,13 @@ export class MessageBoxComponent implements OnInit {
     const input = document.createElement('input');
     const button = document.createElement('button');
     input.setAttribute('value', place.textContent);
-    //input.setAttribute('type', 'text');
+    // input.setAttribute('type', 'text');
     console.log(input);
     console.log(place);
     place.insertAdjacentElement('afterend', input);
     place.insertAdjacentElement('afterend', button);
       // const place = document.body.querySelector('.message');.children[3];
-    //this.edit = true;
+    // this.edit = true;
   }
   ngOnInit(): void {
     this.showPosts();

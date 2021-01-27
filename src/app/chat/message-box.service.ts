@@ -10,9 +10,10 @@ import {MessageInterface} from '../../interfaces/message.interface';
 export class MessageBoxService {
 
   constructor(private http: HttpClient) { }
-  dbUrl = 'assets/message.json';
-  getPost(): Observable<object>{
-    return this.http.get<object>(this.dbUrl)
+  dbUrl = 'assets/chat1.json';
+  getPost(/*id*/): Observable<object>{
+    /*const postRequestUrl = `${this.dbUrl}/${id}`;*/
+    return this.http.get<object>('assets/chat1.json')
       .pipe(
         retry(3)
       );

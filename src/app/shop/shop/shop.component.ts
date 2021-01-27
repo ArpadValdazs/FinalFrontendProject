@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-
+  a = [1, 2, 3];
   constructor() { }
 
   ngOnInit(): void {

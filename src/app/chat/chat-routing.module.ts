@@ -5,17 +5,13 @@ import {ChatboxComponent} from './chat/chatbox/chatbox/chatbox.component';
 
 const chatRoutes: Routes = [
   {
-    path: './',
-    component: ChatComponent,
-    children: [
-      {
-        path: 'id',
-        component: ChatboxComponent,
-        // loadChildren: () => import('./chat/chatbox/chatbox.module').then(m => m.ChatboxModule)
+    path: '',
+    component: ChatComponent
+  },
+  {
+    path: 'chatbox',
+    loadChildren: () => import('./chat/chatbox/chatbox.module').then(m => m.ChatboxModule),
   }
-    ]
-  }
-
 ];
 
 @NgModule({
