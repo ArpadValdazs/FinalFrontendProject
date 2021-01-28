@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {MessageBoxService} from '../../../../message-box.service';
 import {MessageInterface} from '../../../../../../interfaces/message.interface';
+import {ChatRoomService} from '../../../chat-room.service';
 
 @Component({
   selector: 'app-message-box',
@@ -8,13 +9,17 @@ import {MessageInterface} from '../../../../../../interfaces/message.interface';
   styleUrls: ['./message-box.component.css']
 })
 export class MessageBoxComponent implements OnInit {
-  @Output()
+  @Input() id: string;
   post: MessageInterface[] = [];
   sss: string;
   edit = false;
-  constructor(private messageBoxService: MessageBoxService) {}
+  constructor(
+    private messageBoxService: MessageBoxService,
+    private chatRoomService: ChatRoomService
+  ) {}
   showPosts(): void{
-    this.messageBoxService.getPost()
+    console.log(this.id);
+    this.messageBoxService.getPost(this.id)
       .subscribe((data: { messages: MessageInterface[] }) => {
         this.post = data.messages;
       });

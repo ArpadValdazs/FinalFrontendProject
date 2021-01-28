@@ -9,6 +9,7 @@ import {ChatRoomsInterface} from '../../../interfaces/chatRooms.interface';
   providedIn: 'root'
 })
 export class ChatRoomService {
+  private id: string;
 
   constructor(private http: HttpClient) { }
   chatRoomsUrl = 'assets/chatRooms.json';
@@ -19,11 +20,18 @@ export class ChatRoomService {
         retry(3)
       );
   }
+  getRooms(id: string): void {
+    this.id = id;
+  }
+  getId(): string {
+    return this.id;
+  }
+  /*
   chatRoomsRequest(id: number): Observable<object>{
     const chatRoomUrl = `${this.requestUrl}/${id}`;
     return this.http.get<object>(chatRoomUrl)
       .pipe(
         retry(3)
       );
-  }
+  }*/
 }

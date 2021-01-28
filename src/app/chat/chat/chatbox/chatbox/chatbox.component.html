@@ -1,6 +1,6 @@
 <p>chatbox works!</p>
 <ng-container>
-  <app-message-box></app-message-box>
+  <app-message-box [id] = "chatRoom"></app-message-box>
   <app-text-box (sendMessage) = "addChatNumber($event)" ></app-text-box>
 </ng-container>
 

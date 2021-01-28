@@ -1,9 +1,11 @@
 import { switchMap } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {ChatRoomService} from './chat-room.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+// @ts-ignore
 import {ChatRoomsInterface} from '../../../interfaces/chatRooms.interface';
 import {MessageBoxComponent} from './chatbox/chatbox/message-box/message-box.component';
+import {EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-chat',
@@ -25,6 +27,10 @@ export class ChatComponent implements OnInit {
         console.log(data.chatRooms);
         }
       );
+  }
+  getRoomNumber(id: number): void {
+    const idString = id.toString();
+    this.chatRoomsService.getRooms(idString);
   }
   getMessages(id: number): void{
     this.itemToOpen = id;
