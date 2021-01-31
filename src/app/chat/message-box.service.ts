@@ -10,7 +10,6 @@ import {MessageInterface} from '../../interfaces/message.interface';
 export class MessageBoxService {
 
   constructor(private http: HttpClient) { }
-  // The next part is try to perform data input
   dbUrl = 'assets/chat';
   getPost(id: string): Observable<object>{
     const requestUrl = this.dbUrl + id + '.json';

@@ -28,7 +28,7 @@ export class MessageBoxComponent implements OnInit {
     console.log(id, 'component');
     this.messageBoxService.deletePost(id).subscribe();
   }
-  editMessage(id: number): void{
+  getEditWindow(id: number): void{
     console.log(id);
     /*здесь он цепляется за менюшку, вообще говоря, здесь надо сделать норм роутинг, чтобы всё работало нормально
     * */
@@ -39,11 +39,12 @@ export class MessageBoxComponent implements OnInit {
     const input = document.createElement('input');
     const button = document.createElement('button');
     input.setAttribute('value', place.textContent);
-    // input.setAttribute('type', 'text');
+    const buttonText = 'Send';
     console.log(input);
     console.log(place);
     place.insertAdjacentElement('afterend', input);
     place.insertAdjacentElement('afterend', button);
+    button.insertAdjacentText('beforeend', buttonText);
       // const place = document.body.querySelector('.message');.children[3];
     // this.edit = true;
   }

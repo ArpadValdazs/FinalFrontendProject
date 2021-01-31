@@ -6,11 +6,16 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {ChatRoomsInterface} from '../../../interfaces/chatRooms.interface';
 import {MessageBoxComponent} from './chatbox/chatbox/message-box/message-box.component';
 import {EventEmitter} from '@angular/core';
+import {trigger, state, style, animate, transition} from '@angular/animations';
+import {slideInAnimation} from './animations';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  styleUrls: ['./chat.component.css'],
+  animations: [
+    slideInAnimation
+  ]
 })
 export class ChatComponent implements OnInit {
   chatRooms: ChatRoomsInterface[] = [];

@@ -17,7 +17,7 @@ export class SignupService {
       })
     };
     console.log(submit);
-    return this.http.post('aaa.php', submit, httpOptions)
+    return this.http.post('ng', submit, httpOptions)
       .pipe(
       retry(3)
     );
