@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
 import {MessageInterface} from '../../../../../../interfaces/message.interface';
@@ -12,23 +12,32 @@ export class MessageBoxService {
   constructor(private http: HttpClient) { }
   dbUrl = 'assets/chat';
   getPost(id: string): Observable<object>{
+    const params = new HttpParams()
+      .set('chat', id);
     const requestUrl = this.dbUrl + id + '.json';
-    console.log(requestUrl);
-    return this.http.get<object>(requestUrl)
+    return this.http.get<object>(requestUrl, {params})
       .pipe(
-        retry(3)
-      );
-  }
-  deletePost(id: number): Observable<{}>{
-    console.log(id, 'service');
-    const url = this.dbUrl;
-    return this.http.delete<{}>(`${url}/${id}`)
-      .pipe(
+        retry(3),
         catchError(this.handleError)
       );
   }
-
-  handleError(error: HttpErrorResponse): any {
+  deletePost(id: number): Observable<{}>{
+    const url = this.dbUrl;
+    return this.http.delete<{}>(`${url}/${id}`)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  } /*
+  sendEditedPost(id: number, text: string): Observable<{}>{
+    const url = this.dbUrl;
+    return this.http.put<object>(`${url}/${id}`, text)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      );
+  }*/
+  handleError(error: HttpErrorResponse): Observable<never> {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {

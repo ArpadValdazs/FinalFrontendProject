@@ -44,10 +44,11 @@ export class MessageBoxComponent implements OnInit {
     place.insertAdjacentElement('afterend', button);
     button.insertAdjacentText('beforeend', 'Send');
   }
+  /*
+  sendEditedMessage(id, text): void {
+    this.messageBoxService.sendEditedPost(id, text).subscribe();
+  }*/
   ngOnInit(): void {
     this.showPosts();
-  }
-  sendEditedMessage(): void {
-    console.log('xyu');
   }
 }

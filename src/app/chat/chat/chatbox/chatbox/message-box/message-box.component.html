@@ -7,7 +7,8 @@
       <label>
         <input type="text" value="{{item.text}}">
       </label>
-      <button (click)="sendEditedMessage()"></button>
+      <!-- Нужно передавать не item.text, а тут, видимо, нужно воткнуть лайфсайкл хук
+      <button (click)="sendEditedMessage(item.id, item.text)"></button> -->
     </div>
     <ng-template #elseBlock>
       <p class="text">{{item.text}}</p>
