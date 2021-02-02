@@ -7,11 +7,13 @@ import {ChatModule} from './chat/chat.module';
 import {ShopModule} from './shop/shop.module';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,

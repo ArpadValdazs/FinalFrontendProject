@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
-import {MessageInterface} from '../../interfaces/message.interface';
+import {MessageInterface} from '../../../../../../interfaces/message.interface';
 @Injectable({
   providedIn: 'root'
 })

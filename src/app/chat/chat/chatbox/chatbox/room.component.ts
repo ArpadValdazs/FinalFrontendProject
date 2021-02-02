@@ -3,11 +3,11 @@ import {ChatRoomService} from '../../chat-room.service';
 
 
 @Component({
-  selector: 'app-chatbox',
-  templateUrl: './chatbox.component.html',
-  styleUrls: ['./chatbox.component.css']
+  selector: 'app-room',
+  templateUrl: './room.component.html',
+  styleUrls: ['./room.component.css']
 })
-export class ChatboxComponent implements OnInit {
+export class RoomComponent implements OnInit {
   constructor(private chatRoomsService: ChatRoomService) { }
   chatNum = 1;
   chatRoom: string;
@@ -16,13 +16,7 @@ export class ChatboxComponent implements OnInit {
     this.chatRoom = this.chatRoomsService.getId();
     console.log(this.chatRoom);
   }
-  /*
-  goToRoom(id: number): void{
-    // Этот метод работает с целью вывода message-box-component
-    // Здесь надо написать алгоритм присваивания ID, чтобы затем он по нему был запрос
-    this.chatRoomsService.chatRoomsRequest(id)
-      .subscribe();
-  }*/
+
   addChatNumber(newMessage): void {
     this.messageToServer.push(this.chatNum);
     this.messageToServer.push(newMessage);

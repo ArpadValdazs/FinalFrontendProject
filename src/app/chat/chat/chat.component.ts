@@ -33,17 +33,17 @@ export class ChatComponent implements OnInit {
         }
       );
   }
+  // Function takes room.id to open the needed chat.
   getRoomNumber(id: number): void {
     const idString = id.toString();
-    this.chatRoomsService.getRooms(idString);
-  }
-  getMessages(id: number): void{
-    this.itemToOpen = id;
+    this.chatRoomsService.getRoomId(idString);
   }
   sortedRooms(sorted: object): object {
-    // console.log(sorted);
     // @ts-ignore
     return this.chatRooms = sorted;
+  }
+  onSelect(id): void{
+   this.router.navigate(['/chat', id]);
   }
 
   ngOnInit(): void {

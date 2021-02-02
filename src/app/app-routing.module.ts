@@ -7,6 +7,7 @@ import {AdminPanelModule} from './admin-panel/admin-panel.module';
 import {AuthGuard} from './auth/auth.guard';
 import {AdminPanelGuard} from './admin-panel/admin-panel.guard';
 import {AdminPanelComponent} from './admin-panel/admin-panel/admin-panel.component';
+import {NotFoundPageComponent} from './not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {path: '', component: SignupComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
     data: {animation: 'chat'},
     canActivate: [AuthGuard]
   },
-  {path: 'admin', component: AdminPanelComponent, canActivate: [AdminPanelGuard]}
+  {path: 'admin', component: AdminPanelComponent, canActivate: [AdminPanelGuard]},
+  {path: '**', component: NotFoundPageComponent}
 ];
 
 @NgModule({

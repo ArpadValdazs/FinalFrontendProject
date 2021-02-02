@@ -3,7 +3,7 @@
     <app-settings [rooms] = chatRooms (sortAction)="sortedRooms($event)"></app-settings>
   </div>
   <div *ngFor="let roomItem of chatRooms" [id]="roomItem.id" class="roomBox">
-    <a [routerLink]="['chatbox']" class="chatLink" (mouseover)="getRoomNumber(roomItem.id)">
+    <a class="chatLink" (mouseover)="getRoomNumber(roomItem.id)" (click)="onSelect(roomItem.id)">
       <img src="favicon.ico" alt="roomName">
       <p>{{roomItem.name}}</p>
       <p>{{roomItem.lastMessage}}</p>

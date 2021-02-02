@@ -1,7 +1,11 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import {MessageBoxService} from '../../../../message-box.service';
+import {MessageBoxService} from './message-box.service';
 import {MessageInterface} from '../../../../../../interfaces/message.interface';
 import {ChatRoomService} from '../../../chat-room.service';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {ChatRoomsInterface} from '../../../../../../interfaces/chatRooms.interface';
 
 @Component({
   selector: 'app-message-box',
@@ -11,11 +15,12 @@ import {ChatRoomService} from '../../../chat-room.service';
 export class MessageBoxComponent implements OnInit {
   @Input() id: string;
   post: MessageInterface[] = [];
+
   sss: string;
   edit = false;
   constructor(
     private messageBoxService: MessageBoxService,
-    private chatRoomService: ChatRoomService
+    private chatRoomService: ChatRoomService,
   ) {}
   showPosts(): void{
     console.log(this.id);
@@ -29,24 +34,15 @@ export class MessageBoxComponent implements OnInit {
     this.messageBoxService.deletePost(id).subscribe();
   }
   getEditWindow(id: number): void{
-    console.log(id);
-    /*здесь он цепляется за менюшку, вообще говоря, здесь надо сделать норм роутинг, чтобы всё работало нормально
-    * */
+    // This code can be written better, but idk how
     const idString = id.toString();
-    const place2 = document.getElementById(idString);
-    console.log(place2);
     const place = document.getElementById(idString).querySelector('p.text');
     const input = document.createElement('input');
     const button = document.createElement('button');
     input.setAttribute('value', place.textContent);
-    const buttonText = 'Send';
-    console.log(input);
-    console.log(place);
     place.insertAdjacentElement('afterend', input);
     place.insertAdjacentElement('afterend', button);
-    button.insertAdjacentText('beforeend', buttonText);
-      // const place = document.body.querySelector('.message');.children[3];
-    // this.edit = true;
+    button.insertAdjacentText('beforeend', 'Send');
   }
   ngOnInit(): void {
     this.showPosts();

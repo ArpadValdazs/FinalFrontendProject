@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {ChatComponent} from './chat/chat.component';
-import {ChatboxComponent} from './chat/chatbox/chatbox/chatbox.component';
 
 const chatRoutes: Routes = [
   {
@@ -9,8 +8,8 @@ const chatRoutes: Routes = [
     component: ChatComponent
   },
   {
-    path: 'chatbox',
-    loadChildren: () => import('./chat/chatbox/chatbox.module').then(m => m.ChatboxModule),
+    path: ':id',
+    loadChildren: () => import('./chat/chatbox/room.module').then(m => m.RoomModule),
   }
 ];
 

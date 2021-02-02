@@ -1,22 +1,22 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {ChatComponent} from '../chat.component';
-import {ChatboxComponent} from './chatbox/chatbox.component';
+import {RoomComponent} from './chatbox/room.component';
 
-const chatboxRoutes: Routes = [
+const roomRoutes: Routes = [
   {
     path: '',
-    component: ChatboxComponent
+    component: RoomComponent
   }
 ];
 /*Может, этот модуль и не нужен вовсе?*/
 @NgModule({
   imports: [
-    RouterModule.forChild(chatboxRoutes)
+    RouterModule.forChild(roomRoutes)
   ],
   exports: [
     RouterModule
   ]
 })
 
-export class ChatboxRoutingModule { }
+export class RoomRoutingModule { }

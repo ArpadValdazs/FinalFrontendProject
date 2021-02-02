@@ -12,6 +12,8 @@ export class SettingsComponent implements OnInit {
   clickMarker = '0';
   cycleRooms = 'unclicked';
   constructor() { }
+  sortLoop(sortDirection): any{
+  }
   sortByName(): any{
     // const onClicked = ['unclicked', 'clicked'];
     if (this.cycleRooms === 'unclicked'){
@@ -42,6 +44,10 @@ export class SettingsComponent implements OnInit {
       this.cycleRooms = 'unclicked';
     }
     this.sortAction.emit(this.rooms);
+  }
+
+  getValue(): void {
+    console.log('pipindr')
   }
   ngOnInit(): void {
   }

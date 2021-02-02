@@ -20,9 +20,12 @@ export class ChatRoomService {
         retry(3)
       );
   }
-  getRooms(id: string): void {
+  // Function establishes room.id in order to open the needed room.
+  // It is used by means of service, which takes room.id with getId() function.
+  getRoomId(id: string): void {
     this.id = id;
   }
+  // Used by service.
   getId(): string {
     return this.id;
   }
