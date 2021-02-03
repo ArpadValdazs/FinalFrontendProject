@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {ChatModule} from './chat/chat.module';
 import {ShopModule} from './shop/shop.module';
 import {HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
@@ -22,6 +22,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     ShopModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

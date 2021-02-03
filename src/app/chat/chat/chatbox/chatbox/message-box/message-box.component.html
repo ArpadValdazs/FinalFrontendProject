@@ -3,22 +3,23 @@
     <img alt="avatar" [src] = "item.image" class="userpic">
     <p class="nickname">{{item.username}}</p>
     <p class="date">{{item.date}}</p>
-    <div *ngIf="edit; else elseBlock">
-      <label>
-        <input type="text" value="{{item.text}}">
-      </label>
-      <!-- Нужно передавать не item.text, а тут, видимо, нужно воткнуть лайфсайкл хук
-      <button (click)="sendEditedMessage(item.id, item.text)"></button> -->
+
+    <div *ngIf="edit">
+      <div [ngSwitch] = itemId>
+        <div *ngSwitchCase=item.id>
+          <label>
+            <input type="text" [(ngModel)]="textItem">
+          </label>
+          <button>Send</button>
+          <button>Cancel</button>
+        </div>
+      </div>
     </div>
-    <ng-template #elseBlock>
+    <div>
       <p class="text">{{item.text}}</p>
-    </ng-template>
-
-
-
-
+    </div>
     <div class="buttons">
-      <button value="Edit" class = "button1" (click)="getEditWindow(item.id)">Изменить</button>
+      <button value="Edit" class = "button1" (click)="getEditWindow(item.id, item.text)">Изменить</button>
       <button value="Delete" class = "button2" (click)="deleteMessage(item.id)">Удалить</button>
     </div>
   </div>

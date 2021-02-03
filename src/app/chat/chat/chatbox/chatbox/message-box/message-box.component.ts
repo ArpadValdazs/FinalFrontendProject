@@ -6,6 +6,8 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {ChatRoomsInterface} from '../../../../../../interfaces/chatRooms.interface';
+import {EventEmitter} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-message-box',
@@ -14,10 +16,11 @@ import {ChatRoomsInterface} from '../../../../../../interfaces/chatRooms.interfa
 })
 export class MessageBoxComponent implements OnInit {
   @Input() id: string;
+  @Output() editEvent = new EventEmitter();
   post: MessageInterface[] = [];
-
-  sss: string;
+  textItem: string;
   edit = false;
+  itemId: number;
   constructor(
     private messageBoxService: MessageBoxService,
     private chatRoomService: ChatRoomService,
@@ -33,22 +36,19 @@ export class MessageBoxComponent implements OnInit {
     console.log(id, 'component');
     this.messageBoxService.deletePost(id).subscribe();
   }
-  getEditWindow(id: number): void{
-    // This code can be written better, but idk how
-    const idString = id.toString();
-    const place = document.getElementById(idString).querySelector('p.text');
-    const input = document.createElement('input');
-    const button = document.createElement('button');
-    input.setAttribute('value', place.textContent);
-    place.insertAdjacentElement('afterend', input);
-    place.insertAdjacentElement('afterend', button);
-    button.insertAdjacentText('beforeend', 'Send');
-  }
-  /*
-  sendEditedMessage(id, text): void {
-    this.messageBoxService.sendEditedPost(id, text).subscribe();
-  }*/
+
   ngOnInit(): void {
     this.showPosts();
+  }
+  getEditWindow(id: number, text: string): void{
+    // This code can be written better, but idk how
+    this.edit = true;
+    this.itemId = id;
+    this.textItem = text;
+    console.log(this.textItem);
+  }
+  sendEdited(id, text): void {
+    /*
+    this.messageBoxService.sendEditedPost(id, text).subscribe();*/
   }
 }
