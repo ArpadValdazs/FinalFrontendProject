@@ -1,11 +1,15 @@
-<div>
+<div class = "auth">
   <form [formGroup]="authForm" (ngSubmit)="sendAction()">
     <label>
-      <input type="email" placeholder="Введите Email" formControlName="email">
-    </label>
+      <input type="email" placeholder="Input Email" formControlName="email">
+    </label><br>
     <label>
-      <input type="password" placeholder="Введите пароль" formControlName="password">
-    </label>
-    <button type="submit" [disabled]="!authForm.valid">Войти</button>
+      <input type="password" placeholder="Input password" formControlName="password">
+    </label><br>
+    <button type="submit" [disabled]="!authForm.valid" class="button">Log in!</button>
   </form>
+  <div>
+    <p>Not registered?</p>
+    <button class="button" [routerLink]="'/signup'">Signup!</button>
+  </div>
 </div>

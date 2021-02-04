@@ -15,6 +15,8 @@ export class SettingsComponent implements OnInit {
   sortLoop(sortDirection): any{
   }
   sortByName(): any{
+    // Здесь идут повторения, я долго думал, можно ли чем-то заменить
+    // Пузырёк следует заменить алгоритмом вставки, но я ещё не до конца его знаю
     // const onClicked = ['unclicked', 'clicked'];
     if (this.cycleRooms === 'unclicked'){
       // @ts-ignore
@@ -46,8 +48,9 @@ export class SettingsComponent implements OnInit {
     this.sortAction.emit(this.rooms);
   }
 
-  getValue(): void {
-    console.log('pipindr')
+  getValue(event): void {
+    const roomNumber = event.target.value;
+    console.log(roomNumber);
   }
   ngOnInit(): void {
   }

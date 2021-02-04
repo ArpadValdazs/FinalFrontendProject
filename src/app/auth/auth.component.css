@@ -1,0 +1,25 @@
+.auth{
+  display: block;
+  margin: 100px auto;
+  width: min-content;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 10px 50px 10px 50px;
+}
+.button{
+  display: block;
+  margin: 0 auto;
+  width: inherit;
+  background: aliceblue;
+  transition: 0.1s ease-in-out;
+}
+.button:hover{
+  background: blanchedalmond;
+  transition: 0.1s ease-in-out;
+}
+input{
+  margin-bottom: 5px;
+}
+p {
+  margin: 5px;
+}

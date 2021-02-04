@@ -8,10 +8,12 @@ import {AuthGuard} from './auth/auth.guard';
 import {AdminPanelGuard} from './admin-panel/admin-panel.guard';
 import {AdminPanelComponent} from './admin-panel/admin-panel/admin-panel.component';
 import {NotFoundPageComponent} from './not-found-page/not-found-page.component';
+import {ChatComponent} from './chat/chat/chat.component';
 
 const routes: Routes = [
-  {path: '', component: SignupComponent},
+  {path: '', redirectTo: '/chat', pathMatch: 'full'},
   {path: 'auth', component: AuthComponent},
+  {path: 'signup', component: SignupComponent},
   {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule),

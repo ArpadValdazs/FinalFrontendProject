@@ -28,15 +28,15 @@ export class MessageBoxService {
         retry(3),
         catchError(this.handleError)
       );
-  } /*
+  }
   sendEditedPost(id: number, text: string): Observable<{}>{
     const url = this.dbUrl;
-    return this.http.put<object>(`${url}/${id}`, text)
+    return this.http.put<object>(`${url}/put`, text)
       .pipe(
         retry(3),
         catchError(this.handleError)
       );
-  }*/
+  }
   handleError(error: HttpErrorResponse): Observable<never> {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);

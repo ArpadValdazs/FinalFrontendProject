@@ -3,21 +3,22 @@
     <img alt="avatar" [src] = "item.image" class="userpic">
     <p class="nickname">{{item.username}}</p>
     <p class="date">{{item.date}}</p>
-
+    <div>
+      <p class="text">{{item.text}}</p>
+    </div>
+    <!-- Этот код работает не так, как хотелось бы -->
     <div *ngIf="edit">
       <div [ngSwitch] = itemId>
         <div *ngSwitchCase=item.id>
           <label>
             <input type="text" [(ngModel)]="textItem">
           </label>
-          <button>Send</button>
+          <button (click)="sendEdited(item.id, textItem)">Send</button>
           <button>Cancel</button>
         </div>
       </div>
     </div>
-    <div>
-      <p class="text">{{item.text}}</p>
-    </div>
+
     <div class="buttons">
       <button value="Edit" class = "button1" (click)="getEditWindow(item.id, item.text)">Изменить</button>
       <button value="Delete" class = "button2" (click)="deleteMessage(item.id)">Удалить</button>

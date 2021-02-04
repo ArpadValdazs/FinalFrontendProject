@@ -48,7 +48,6 @@ export class MessageBoxComponent implements OnInit {
     console.log(this.textItem);
   }
   sendEdited(id, text): void {
-    /*
-    this.messageBoxService.sendEditedPost(id, text).subscribe();*/
+    this.messageBoxService.sendEditedPost(id, text).subscribe();
   }
 }
