@@ -4,8 +4,11 @@
 
       <input type="text" placeholder="Введите номер беседы" class="inputNumber" (input) = "getValue($event)">
     </label>
-    <button (click)="sortByName()" class="sortButton">Sort by name</button>
-    <button class="sortButton">Sort by date</button>
+    <button (click)="sortByName()" class="settingsButton">Sort by name</button>
+    <button class="settingsButton">Create new room</button>
+    <ng-container *ngIf="isAdmin">
+      <button [routerLink]="'/admin'" class="settingsButton">Admin</button>
+    </ng-container>
   </div>
   <input type="button" value="Exit" class="quitButton">
 </div>

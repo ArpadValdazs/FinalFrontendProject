@@ -8,7 +8,7 @@ import {retry} from 'rxjs/operators';
 })
 export class AuthService {
   isLoggedIn = true;
-  isAdmin = true;
+  private isAdmin = true;
   redirectUrl: string;
 
   constructor(private http: HttpClient) { }
@@ -24,5 +24,8 @@ export class AuthService {
       .pipe(
         retry(3)
       );
+  }
+  getAdminStatus(): boolean{
+    return this.isAdmin;
   }
 }

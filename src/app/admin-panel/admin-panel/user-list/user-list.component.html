@@ -1,0 +1,16 @@
+<ng-container *ngFor="let users of userList">
+  <p>{{users.name}}</p>
+  <p>{{users.email}}</p>
+  <p>{{users.role}}</p>
+  <button>Delete</button>
+  <button>Edit</button>
+  <label>
+    <select>
+      <option>Moderator</option>
+      <option>User</option>
+      <option>Block</option>
+    </select>
+  </label>
+</ng-container>
+
+

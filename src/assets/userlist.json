@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Arpad",
+      "email": "chrundell@mail.ru",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Chrundell",
+      "email": "arpad@mail.ru",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "name": "Pipinder",
+      "email": "putin@gmail.ru",
+      "role": "banned"
+    }
+  ]
+}

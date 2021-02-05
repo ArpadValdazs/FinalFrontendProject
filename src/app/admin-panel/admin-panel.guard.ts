@@ -16,7 +16,7 @@ export class AdminPanelGuard implements CanActivate {
     return this.checkAdmin(url);
   }
   checkAdmin(url: string): true | UrlTree {
-    if (this.authService.isAdmin) {return true; }
+    if (this.authService.getAdminStatus()) {return true; }
     this.authService.redirectUrl = url;
     return this.router.parseUrl('/chat');
   }

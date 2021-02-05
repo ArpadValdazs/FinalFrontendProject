@@ -8,6 +8,7 @@ import {MessageBoxComponent} from './chatbox/chatbox/message-box/message-box.com
 import {EventEmitter} from '@angular/core';
 import {trigger, state, style, animate, transition} from '@angular/animations';
 import {slideInAnimation} from './animations';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-chat',

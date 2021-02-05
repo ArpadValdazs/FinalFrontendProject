@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ChatComponent} from '../chat.component';
+import {AuthService} from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-settings',
@@ -11,9 +12,10 @@ export class SettingsComponent implements OnInit {
   @Output() sortAction = new EventEmitter<object>();
   clickMarker = '0';
   cycleRooms = 'unclicked';
-  constructor() { }
-  sortLoop(sortDirection): any{
-  }
+  constructor(
+    private authService: AuthService,
+  ) { }
+  isAdmin = this.authService.getAdminStatus();
   sortByName(): any{
     // Здесь идут повторения, я долго думал, можно ли чем-то заменить
     // Пузырёк следует заменить алгоритмом вставки, но я ещё не до конца его знаю
