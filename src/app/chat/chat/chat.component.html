@@ -1,6 +1,6 @@
 <div class="chatRooms">
   <div class="settingsBox">
-    <app-settings [rooms] = chatRooms (sortAction)="sortedRooms($event)"></app-settings>
+    <app-settings [rooms] = chatRooms (roomsViewSwitch)="sortedRooms($event)"></app-settings>
   </div>
   <div *ngFor="let roomItem of chatRooms" [id]="roomItem.id" class="roomBox">
     <a class="chatLink" (mouseover)="getRoomNumber(roomItem.id)" (click)="onSelect(roomItem.id)">
