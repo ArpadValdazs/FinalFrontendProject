@@ -7,9 +7,9 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 
 @NgModule({
-  declarations: [UserListComponent, ItemsListComponent, AdminPanelComponent],
+  declarations: [ItemsListComponent, AdminPanelComponent, UserListComponent],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class AdminPanelModule { }

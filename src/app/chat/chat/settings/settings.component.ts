@@ -17,7 +17,22 @@ export class SettingsComponent implements OnInit {
     private authService: AuthService,
   ) { }
   isAdmin = this.authService.getAdminStatus();
-  // Method
+
+  // Takes the array of chats to sort, and then sends to chat.component to rebuild array
+  mergeSort(arr): object{
+    if (!arr || !arr.length){
+      console.log('null');
+      return null;
+    }
+    if (arr.length <= 1){
+      return arr;
+    }
+    const middle = Math.floor(arr.length / 2);
+    const arrLeft = arr.slice(0, middle);
+    const arrRight = arr.slice(middle);
+    return this.merge(this.mergeSort(arrLeft), this.mergeSort(arrRight));
+  }
+  // Sort
   merge(array1, array2): object {
     const arraySort = [];
     let i = 0;
@@ -34,21 +49,8 @@ export class SettingsComponent implements OnInit {
     ];
   }
 
-  mergeSort(arr): object{
-    if (!arr || !arr.length){
-      console.log('null');
-      return null;
-    }
-    if (arr.length <= 1){
-      return arr;
-    }
-    const middle = Math.floor(arr.length / 2);
-    const arrLeft = arr.slice(0, middle);
-    const arrRight = arr.slice(middle);
-    return this.merge(this.mergeSort(arrLeft), this.mergeSort(arrRight));
-  }
+  // Method that sets initial array of rooms given from server, some sort of Singleton
   setInitialRooms(): object {
-    // This array is empty? If it isn't, array returns. Some sort of Singleton
     if (!(this.initialRooms[0] === undefined)) {
       return this.initialRooms;
     } else {
@@ -74,7 +76,7 @@ export class SettingsComponent implements OnInit {
         break;
     }
   }
-
+  // Chat name search function
   getValue(event): void {
     this.setInitialRooms();
     const roomNumber = event.target.value;
@@ -87,7 +89,7 @@ export class SettingsComponent implements OnInit {
         resultArray.push(this.rooms[i]);
       }
     }
-    console.log(this.initialRooms);
+    // If search field is empty, returns initial order
     if (roomNumber === ''){
       this.roomsViewSwitch.emit(this.initialRooms);
     } else {

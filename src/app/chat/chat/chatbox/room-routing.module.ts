@@ -9,7 +9,7 @@ const roomRoutes: Routes = [
     component: RoomComponent
   }
 ];
-/*Может, этот модуль и не нужен вовсе?*/
+
 @NgModule({
   imports: [
     RouterModule.forChild(roomRoutes)

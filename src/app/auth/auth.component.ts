@@ -19,8 +19,6 @@ export class AuthComponent implements OnInit {
   sendAction(): void{
     this.authService.sendAuth(this.authForm.value).subscribe();
   }
-  onSubmitAuth(): void{
-  }
 
   ngOnInit(): void {
   }

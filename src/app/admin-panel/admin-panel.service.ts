@@ -15,4 +15,18 @@ export class AdminPanelService {
         retry(3)
       );
   }
+  deleteUser(id: number): Observable<{}> {
+    const url = 'deleteLink';
+    return this.http.delete<object>(`${url}/${id}`)
+      .pipe(
+        retry(3)
+      );
+  }
+  changeStatus(id: number, status: string): Observable<{}>{
+    const url = 'changeUser';
+    return this.http.put<object>(`${url}/edit/${id}`, status)
+      .pipe(
+        retry(3)
+      );
+  }
 }
