@@ -9,6 +9,7 @@ import {AdminPanelGuard} from './admin-panel/admin-panel.guard';
 import {AdminPanelComponent} from './admin-panel/admin-panel/admin-panel.component';
 import {NotFoundPageComponent} from './not-found-page/not-found-page.component';
 import {ChatComponent} from './chat/chat/chat.component';
+import {TableComponent} from './table/table.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/chat', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {path: 'admin', component: AdminPanelComponent, canActivate: [AdminPanelGuard]},
+  {path: 'table', component: TableComponent},
   {path: '**', component: NotFoundPageComponent}
 ];
 
@@ -29,4 +31,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [SignupComponent, AuthComponent];
+export const routingComponents = [SignupComponent, AuthComponent, TableComponent];

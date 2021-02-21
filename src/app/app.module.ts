@@ -8,12 +8,20 @@ import {ShopModule} from './shop/shop.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { TableComponent } from './table/table.component';
+import { TablebodyComponent } from './table/tablebody/tablebody.component';
+import { RowComponent } from './table/tablebody/row/row.component';
+import { ColumnComponent } from './table/tablebody/row/column/column.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    TableComponent,
+    TablebodyComponent,
+    RowComponent,
+    ColumnComponent
   ],
   imports: [
     BrowserModule,

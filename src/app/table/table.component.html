@@ -1,0 +1,23 @@
+<div>
+  <button id="createRow">Create new row</button>
+  <button id="createColumn">Create new column</button><br>
+  <button id="deleteRow">Delete row</button>
+  <button id="deleteColumn">Delete column</button><br>
+  <input type="text">
+  <div class="pageBox" id = "pageBox">
+
+      <div class="pageElem">
+        <div>1.</div><div>1</div>
+      </div>
+    <div>
+      <p *ngFor="let item of newObj">{{item}}</p>
+    </div>
+      <table>
+        <app-tablebody>
+        </app-tablebody>
+      </table>
+<div *ngFor="let item of tables">
+  <p>{{item.column}}</p>
+</div>
+</div>
+</div>

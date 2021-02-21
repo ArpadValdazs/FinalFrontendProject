@@ -1,0 +1,27 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+th>input {
+  width: 50px;
+}
+.pageBox{
+  width: 300px;
+  height: 300px;
+}
+.pageLink {
+  box-sizing: content-box;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  background: #AADDAA;
+  color: black;
+}
+.pageElem {
+  display: inline;
+}
+.pageLink div{
+  display: inline;
+  box-sizing: content-box;
+}
