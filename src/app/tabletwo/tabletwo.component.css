@@ -1,0 +1,22 @@
+.table{/*
+  display: flex;
+  position: relative;
+  box-sizing: content-box;*/
+}
+.tableColumns{/*
+  position: relative;
+  display: inline;*/
+}
+.tableItems{
+  min-width: 50px;
+  max-height: 20px;
+  border: 1px solid black;
+  /*overflow: hidden;*/
+}
+.tableItems:focus{/*
+  position: relative;
+  overflow: visible;
+  max-height: unset;
+  outline: none !important;*/
+  background-color: wheat;
+}

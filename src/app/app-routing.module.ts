@@ -10,6 +10,7 @@ import {AdminPanelComponent} from './admin-panel/admin-panel/admin-panel.compone
 import {NotFoundPageComponent} from './not-found-page/not-found-page.component';
 import {ChatComponent} from './chat/chat/chat.component';
 import {TableComponent} from './table/table.component';
+import {TabletwoComponent} from './tabletwo/tabletwo.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/chat', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   },
   {path: 'admin', component: AdminPanelComponent, canActivate: [AdminPanelGuard]},
   {path: 'table', component: TableComponent},
+  {path: 'tabletwo', component: TabletwoComponent},
   {path: '**', component: NotFoundPageComponent}
 ];
 

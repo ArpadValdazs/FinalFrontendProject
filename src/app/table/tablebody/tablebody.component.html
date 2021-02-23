@@ -1,1 +1,6 @@
-<tbody><app-row></app-row></tbody>
+<tbody>
+<tr *ngIf="!tableRow else elseBlock">Loading...</tr>
+<ng-template #elseBlock>
+  <app-row *ngFor="let item of tableRow"></app-row>
+</ng-template>
+</tbody>

@@ -9,15 +9,14 @@
       <div class="pageElem">
         <div>1.</div><div>1</div>
       </div>
-    <div>
-      <p *ngFor="let item of newObj">{{item}}</p>
-    </div>
-      <table>
-        <app-tablebody>
+    <p *ngIf="!maxRow; else elseBlock">Loading...</p>
+    <ng-template #elseBlock>
+
+      <table class = "table">
+        <app-tablebody [table] = "tables" [rows] = "maxRow" [columns] = "maxColumn" [openedTableRow] = "openedTableRow" [openedTableColumn] = "openedTableColumn">
         </app-tablebody>
       </table>
-<div *ngFor="let item of tables">
-  <p>{{item.column}}</p>
-</div>
+    </ng-template>
+
 </div>
 </div>

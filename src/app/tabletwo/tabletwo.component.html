@@ -1,0 +1,58 @@
+<form [formGroup]="tableForm" (ngSubmit)="createTable()">
+  <label>
+    <input type="text" placeholder="Input table height" formControlName="height"/>
+  </label>
+  <label>
+    <input type="text" placeholder="Input table width" formControlName="width">
+  </label>
+  <button type="submit" [disabled]="tableCreated">Submit</button>
+</form>
+<button [appContentEditableDirective]></button>
+  <form [formGroup]="elementsEdit" (ngSubmit)="editElements()">
+    <label>
+      <input type="text" formControlName="createRows"/>
+    </label>
+    <label>
+      <input type="text" formControlName="createColumns"/>
+    </label>
+    <label>
+      <input type="text" formControlName="deleteRows"/>
+    </label>
+    <label>
+      <input type="text" formControlName="createColumns"/>
+    </label>
+    <button type="submit">Apply</button><br>
+  </form>
+
+<div class="table">
+  <div *ngIf="tableNotEdited else Elseblock" >
+    <table>
+      <tr>
+        <td></td>
+        <td *ngFor = "let itemHeight of tableHeightsArray">{{itemHeight+1}}</td>
+      </tr>
+    <tr *ngFor = "let itemWidth of tableWidthsArray" class="tableColumns">
+      <th (click)="checkTableSize()">{{itemWidth+1}}</th>
+      <td *ngFor = "let itemHeight of tableHeightsArray" class="tableItems" contenteditable="true" id="{{itemWidth}}_{{itemHeight}}" (blur)="getElementsChanges(itemWidth, itemHeight)">
+      </td>
+    </tr>
+    </table>
+  </div>
+  <div class="table">
+  <ng-template #Elseblock>
+    <table>
+      <tr>
+        <td></td>
+        <td *ngFor = "let itemHeight of tableHeightsArray">{{itemHeight+1}}</td>
+      </tr>
+      <tr *ngFor = "let itemWidthElse of tableWidthsArray" class="tableColumns">
+        <th (click)="checkTableSize()">{{itemWidthElse+1}}</th>
+        <th *ngFor = "let itemHeightElse of tableHeightsArray" class="tableItems" contenteditable="true" id="{{itemWidthElse}}_{{itemHeightElse}}" (blur)="getElementsChanges(itemWidthElse, itemHeightElse)">
+          {{table[itemWidthElse][itemHeightElse]}}
+        </th>
+      </tr>
+    </table>
+  </ng-template>
+  </div>
+</div>
+
