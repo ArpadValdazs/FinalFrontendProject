@@ -7,19 +7,18 @@
   </label>
   <button type="submit" [disabled]="tableCreated">Submit</button>
 </form>
-<button [appContentEditableDirective]></button>
   <form [formGroup]="elementsEdit" (ngSubmit)="editElements()">
     <label>
-      <input type="text" formControlName="createRows"/>
+      <input type="text" formControlName="createColumns" placeholder="Create rows"/>
     </label>
     <label>
-      <input type="text" formControlName="createColumns"/>
+      <input type="text" formControlName="createRows" placeholder="Create columns"/>
     </label>
     <label>
-      <input type="text" formControlName="deleteRows"/>
+      <input type="text" formControlName="deleteColumns" placeholder="Delete columns"/>
     </label>
     <label>
-      <input type="text" formControlName="createColumns"/>
+      <input type="text" formControlName="deleteRows" placeholder="Delete rows"/>
     </label>
     <button type="submit">Apply</button><br>
   </form>
@@ -29,11 +28,11 @@
     <table>
       <tr>
         <td></td>
-        <td *ngFor = "let itemHeight of tableHeightsArray">{{itemHeight+1}}</td>
+        <td *ngFor = "let itemWidth of tableWidthArray">{{itemWidth+1}}</td>
       </tr>
-    <tr *ngFor = "let itemWidth of tableWidthsArray" class="tableColumns">
-      <th (click)="checkTableSize()">{{itemWidth+1}}</th>
-      <td *ngFor = "let itemHeight of tableHeightsArray" class="tableItems" contenteditable="true" id="{{itemWidth}}_{{itemHeight}}" (blur)="getElementsChanges(itemWidth, itemHeight)">
+    <tr *ngFor = "let itemHeight of tableHeightsArray" class="tableColumns">
+      <th (click)="sortRows(itemHeight)">{{itemHeight+1}}</th>
+      <td *ngFor = "let itemWidth of tableWidthArray" class="tableItems" contenteditable="true" id="{{itemHeight}}_{{itemWidth}}" (blur)="getElementsChanges(itemHeight, itemWidth)">
       </td>
     </tr>
     </table>
@@ -43,12 +42,14 @@
     <table>
       <tr>
         <td></td>
-        <td *ngFor = "let itemHeight of tableHeightsArray">{{itemHeight+1}}</td>
+        <td *ngFor = "let itemWidth of tableWidthArray">{{itemWidth+1}}</td>
       </tr>
-      <tr *ngFor = "let itemWidthElse of tableWidthsArray" class="tableColumns">
-        <th (click)="checkTableSize()">{{itemWidthElse+1}}</th>
-        <th *ngFor = "let itemHeightElse of tableHeightsArray" class="tableItems" contenteditable="true" id="{{itemWidthElse}}_{{itemHeightElse}}" (blur)="getElementsChanges(itemWidthElse, itemHeightElse)">
-          {{table[itemWidthElse][itemHeightElse]}}
+      <tr *ngFor = "let itemHeightElse of tableHeightsArray" class="tableColumns">
+        <th (click)="sortRows(itemHeightElse)">{{itemHeightElse+1}}</th>
+        <th *ngFor = "let itemWidthElse of tableWidthArray" class="tableItems" contenteditable="true" id="{{itemHeightElse}}_{{itemWidthElse}}" (blur)="getElementsChanges(itemHeightElse, itemWidthElse)">
+          <!-- Здесь идёт убогая заплатка, поскольку я не смог найти, как в последних версиях ангуляра работать с contenteditable -->
+          <!--{{table[itemWidthElse][itemHeightElse]}}-->
+
         </th>
       </tr>
     </table>

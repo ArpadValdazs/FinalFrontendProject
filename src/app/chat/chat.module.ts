@@ -5,10 +5,11 @@ import {RouterModule} from '@angular/router';
 import {ChatRoutingModule} from './chat-routing.module';
 import {ChatComponent} from './chat/chat.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { EmphasizeDirective } from './chat/emphasize.directive';
 
 
 @NgModule({
-  declarations: [SettingsComponent, ChatComponent],
+  declarations: [SettingsComponent, ChatComponent, EmphasizeDirective],
   exports: [
     ChatComponent,
     SettingsComponent,

@@ -14,6 +14,7 @@ import { RowComponent } from './table/tablebody/row/row.component';
 import { ColumnComponent } from './table/tablebody/row/column/column.component';
 import { TabletwoComponent } from './tabletwo/tabletwo.component';
 import { ContentEditableDirective } from './tabletwo/content-editable.directive';
+import { TabletwoTableComponent } from './tabletwo/tabletwo-table/tabletwo-table.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContentEditableDirective } from './tabletwo/content-editable.directive'
     RowComponent,
     ColumnComponent,
     TabletwoComponent,
-    ContentEditableDirective
+    ContentEditableDirective,
+    TabletwoTableComponent
   ],
   imports: [
     BrowserModule,

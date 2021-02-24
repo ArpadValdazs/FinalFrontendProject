@@ -10,17 +10,17 @@ export class TabletwoComponent implements OnInit {
   table = [];
   tableCreated = false;
   tableNotEdited = true;
+  tableWidthArray = [];
   tableHeightsArray = [];
-  tableWidthsArray = [];
   tableForm = new FormGroup({
     height: new FormControl(''),
     width: new FormControl(''),
   });
   elementsEdit = new FormGroup({
-    createRows: new FormControl(''),
     createColumns: new FormControl(''),
-    deleteRows: new FormControl(''),
+    createRows: new FormControl(''),
     deleteColumns: new FormControl(''),
+    deleteRows: new FormControl(''),
   });
   constructor() { }
   createTable(): boolean{
@@ -31,30 +31,30 @@ export class TabletwoComponent implements OnInit {
       return false;
     }
     const preTable = [];
+    this.tableWidthArray = this.range(0, width);
     this.tableHeightsArray = this.range(0, height);
-    this.tableWidthsArray = this.range(0, width);
-    for (let i = 0; i < height + 1; i++){
+    for (let i = 0; i < width + 1; i++){
       preTable.push([]);
-      for (let j = 0; j < width + 1; j++){
+      for (let j = 0; j < height + 1; j++){
         preTable[i].push(['']);
       }
     }
     this.tableCreated = true;
     this.table = preTable;
-    console.log(this.table);
+    console.log('created: ', this.table);
     return true;
   }
   editElements(): void{
     // Create new copy of array
     const initialTable = this.table.slice();
-    const rowsToInsert = Number(this.elementsEdit.get('createRows').value);
     const columnsToInsert = Number(this.elementsEdit.get('createColumns').value);
-    const rowsToDelete = Number(this.elementsEdit.get('deleteRows').value);
+    const rowsToInsert = Number(this.elementsEdit.get('createRows').value);
     const columnsToDelete = Number(this.elementsEdit.get('deleteColumns').value);
-    if ((isNaN(rowsToInsert)) || (isNaN(rowsToInsert)) || (isNaN(rowsToInsert)) || (isNaN(rowsToInsert))){
+    const rowsToDelete = Number(this.elementsEdit.get('deleteRows').value);
+    if ((isNaN(rowsToInsert)) || (isNaN(columnsToInsert)) || (isNaN(columnsToDelete)) || (isNaN(rowsToDelete))){
       alert('ты мне хрень ввёл!!!!!!');
     }
-    if ((rowsToInsert === 0) && (columnsToInsert === 0) && (rowsToDelete === 0) && (columnsToDelete === 0)){
+    if ((columnsToInsert === 0) && (rowsToInsert === 0) && (columnsToDelete === 0) && (rowsToDelete === 0)){
       alert('!!!');
     } else {
       if (columnsToInsert){
@@ -63,27 +63,27 @@ export class TabletwoComponent implements OnInit {
             this.table[i].push(['']);
           }
         }
-        this.tableWidthsArray = this.range(0, this.tableWidthsArray.length - 1 + columnsToInsert);
+        this.tableHeightsArray = this.range(0, this.tableHeightsArray.length - 1 + columnsToInsert);
       }
       if (rowsToInsert) {
-        for (let i = 0; i < this.tableWidthsArray.length; i++){
+        for (let i = 0; i < this.tableHeightsArray.length; i++){
           this.table.push([]);
         }
-        this.tableHeightsArray = this.range(0, this.tableHeightsArray.length - 1 + rowsToInsert);
+        this.tableWidthArray = this.range(0, this.tableWidthArray.length - 1 + rowsToInsert);
       }
       if (columnsToDelete) {
-        for (let i = 0; i < this.tableWidthsArray.length; i++){
+        for (let i = 0; i < this.tableHeightsArray.length; i++){
           for (let j = 0; j < columnsToDelete; j++){
             this.table[i].pop();
           }
         }
-        this.tableHeightsArray = this.range(0, this.tableHeightsArray.length - 1 - columnsToDelete);
+        this.tableWidthArray = this.range(0, this.tableWidthArray.length - 1 - columnsToDelete);
       }
       if (rowsToDelete) {
-        for (let i = 0; i < this.tableWidthsArray.length; i++){
+        for (let i = 0; i < this.tableHeightsArray.length; i++){
           this.table.pop();
         }
-        this.tableHeightsArray = this.range(0, this.tableHeightsArray.length - 1 - rowsToDelete);
+        this.tableWidthArray = this.range(0, this.tableWidthArray.length - 1 - rowsToDelete);
       }
     }
   }
@@ -95,12 +95,24 @@ export class TabletwoComponent implements OnInit {
     if (text === '') {
       return false;
     }
-    this.table[height][width] = [text];
+    this.table[width][height] = [text];
+    console.log('changed: ', this.table);
     this.tableNotEdited = false;
     return true;
   }
-  checkTableSize(): void{
-   console.log('lel');
+  sortRows(rowNumber): void{
+   // Здесь я за экономией времени применяю медленную пузырьковую сортировку, но в моём проекте есть и сортировка вставкой.
+    // плюс сейчас понял, что не стоило мне всё засовывать всё в массивы
+     for (let i = 1; i < this.tableWidthArray.length; i++){
+       for (let j = 1; j < this.tableWidthArray.length; j++){
+       if (this.table[i][rowNumber][0] < this.table[j - 1][rowNumber][0]){
+         const reservation = this.table[i][rowNumber];
+         this.table[i][rowNumber] = this.table[j - 1][rowNumber];
+         this.table[j - 1][rowNumber] = reservation;
+       }
+       }
+       console.log(this.table[i]);
+    }
   }
   range(start, end): any{
     if (start === end) { return [start]; }

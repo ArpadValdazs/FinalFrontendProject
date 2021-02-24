@@ -1,8 +1,11 @@
+<h1>ВНИМАНИЕ!!!</h1>
+<p>Прежде, чем начать знакомиться с данным проектом, прошу прочитать файл WHATISIT.TXT, лежащий в корне.</p>
 <div class="chatRooms">
+  <a [routerLink]="['/tabletwo']">Таблицы (Не доделано)</a>
   <div class="settingsBox">
     <app-settings [rooms] = chatRooms (roomsViewSwitch)="sortedRooms($event)"></app-settings>
   </div>
-  <div *ngFor="let roomItem of chatRooms" [id]="roomItem.id" class="roomBox">
+  <div *ngFor="let roomItem of chatRooms" [id]="roomItem.id" class="roomBox" appEmphasize>
     <a class="chatLink" (mouseover)="getRoomNumber(roomItem.id)" (click)="onSelect(roomItem.id)">
       <img src="favicon.ico" alt="roomName">
       <p>{{roomItem.name}}</p>
